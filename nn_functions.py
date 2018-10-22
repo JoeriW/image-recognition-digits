@@ -70,6 +70,7 @@ def leaky_relu(Z):
     return A, cache
 
 def softmax(Z):
+    
     A = np.exp(Z)/np.sum(np.exp(Z),axis=0)
     
     assert(A.shape == Z.shape)
