@@ -34,7 +34,7 @@ Z2,cache = linear_forward(A1,parameters["W2"],parameters["b2"])
 A2,cache = softmax(Z2)
 
 #compute cost
-cost = -np.log(A2[label_Y[0,],np.arange(label_Y.shape[1])])
-loss = np.mean(cost)
+cost = -np.mean(np.sum((1-train_Y)*np.log(1-A2)+train_Y*np.log(A2),axis=0))
 
 #backprop
+dA2 = train_Y - A2
